@@ -1,0 +1,126 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Search Armchair episodes for books, movies, podcasts and other media mentioned during the show";
+}
+
+<div class="text-center">
+    <h1 class=""></h1>
+</div>
+<div class="row">
+    <div class="col-12">
+        <table id="episodes">
+            <thead>
+                <th></th>
+            </thead>
+            <tbody>
+                @foreach (var episode in Model.ListOfEpisodes)
+                {
+                    <tr>
+                        <td class="episode-row">
+                            <div class="row">
+                                <div class="col-3 image-column">
+                                    <a href="@episode.Url" target="_blank">
+                                        <img src="@episode.ImageUrl" alt="@episode.Name" /> </a>
+                                </div>
+                                <div class="col-9">
+                                    <h2>
+                                        <a href="@episode.Url" target="_blank">@episode.Name</a>
+                                    </h2>
+                                    <div>
+                                        @episode.Description
+                                    </div>
+                                    <div class="mt-2">
+                                        @if (episode.HasMedia)
+                                        {
+                                            @if (!string.IsNullOrEmpty(episode.Articles))
+                                            {
+                                                <div><span class="fw-bold">Articles: </span>@episode.Articles
+                                                </div>
+                                            }
+
+                                            @if (!string.IsNullOrEmpty(episode.Books))
+                                            {
+                                                <div><span class="fw-bold">Books: </span>@episode.Books</div>
+                                            }
+
+                                            @if (!string.IsNullOrEmpty(episode.Documentaries))
+                                            {
+                                                <div><span class="fw-bold">Documentaries: </span>@episode.Documentaries</div>
+                                            }
+
+                                            @if (!string.IsNullOrEmpty(episode.Movies))
+                                            {
+                                                <div><span class="fw-bold">Movies: </span>@episode.Movies</div>
+                                            }
+
+                                            @if (!string.IsNullOrEmpty(episode.Music))
+                                            {
+                                                <div><span class="fw-bold">Music: </span>@episode.Music</div>
+                                            }
+
+                                            @if (!string.IsNullOrEmpty(episode.Podcasts))
+                                            {
+                                                <div><span class="fw-bold">Podcasts: </span>@episode.Podcasts</div>
+                                            }
+
+                                            @if (!string.IsNullOrEmpty(episode.Shows))
+                                            {
+                                                <div><span class="fw-bold">Shows: </span>@episode.Shows</div>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <div><span class="fw-bold">Episode not yet logged</span></div>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <hr />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#episodes').DataTable({
+            pageLength: 50,
+            lengthChange: false,
+            ordering: false,
+            language: {
+                search: "",
+                searchPlaceholder: "Search Armchair episodes for books, movies, podcasts and other media mentioned during the show"
+            },
+            dom: 'firti',
+        });
+
+        //$("#episodes_filter input").keypress(function (e) {
+        //   console.log(e);
+        //  replaceText();
+        //});
+    });
+
+    function replaceText() {
+
+        $("body").find(".highlight").removeClass("highlight");
+
+        var searchword = $("#episodes_filter input").val();
+
+        var custfilter = new RegExp(searchword, "ig");
+        var repstr = "<span class='highlight'>" + searchword + "</span>";
+
+        if (searchword != "") {
+            $('body').each(function () {
+                $(this).html($(this).html().replace(custfilter, repstr));
+            })
+        }
+    }
+</script>
+}

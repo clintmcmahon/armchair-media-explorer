@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaGuide.Web", "MediaGuide.Web\MediaGuide.Web.csproj", "{DB1581E7-88F9-4830-A4ED-A1AE8CBC831C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaGuide.Data", "MediaGuide.Data\MediaGuide.Data.csproj", "{DC799B52-65DB-4F22-B219-BE88CB47D42B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaGuide.Spotify", "MediaGuide.Spotify\MediaGuide.Spotify.csproj", "{2E7D757D-0418-4952-AD34-9F79FC786E8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaGuide.DataLoader", "MediaGuide.DataLoader\MediaGuide.DataLoader.csproj", "{8E310D4A-722A-4DBE-87DB-5B6510DBF492}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB1581E7-88F9-4830-A4ED-A1AE8CBC831C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB1581E7-88F9-4830-A4ED-A1AE8CBC831C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB1581E7-88F9-4830-A4ED-A1AE8CBC831C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB1581E7-88F9-4830-A4ED-A1AE8CBC831C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC799B52-65DB-4F22-B219-BE88CB47D42B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC799B52-65DB-4F22-B219-BE88CB47D42B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC799B52-65DB-4F22-B219-BE88CB47D42B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC799B52-65DB-4F22-B219-BE88CB47D42B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E7D757D-0418-4952-AD34-9F79FC786E8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E7D757D-0418-4952-AD34-9F79FC786E8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E7D757D-0418-4952-AD34-9F79FC786E8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E7D757D-0418-4952-AD34-9F79FC786E8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E310D4A-722A-4DBE-87DB-5B6510DBF492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E310D4A-722A-4DBE-87DB-5B6510DBF492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E310D4A-722A-4DBE-87DB-5B6510DBF492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E310D4A-722A-4DBE-87DB-5B6510DBF492}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
