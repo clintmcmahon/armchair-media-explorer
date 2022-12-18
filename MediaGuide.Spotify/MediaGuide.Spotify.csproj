@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
     <ProjectReference Include="..\MediaGuide.Data\MediaGuide.Data.csproj" />
@@ -16,6 +16,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <UserSecretsId>bf762505-0707-472f-9d8f-069025d07a28</UserSecretsId>
   </PropertyGroup>
 
 <ItemGroup>

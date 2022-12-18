@@ -17,17 +17,19 @@ namespace MediaGuide.Spotify
 
             var config = configuration.Build();
             var connectionString = config.GetConnectionString("DefaultConnection");
+            var clientId = config.GetSection("Spotify:SpotifyClientId")?.Value;
+            var clientSecret = config.GetSection("Spotify:SpotifyClientSecret")?.Value;
 
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-            optionsBuilder.UseMySql(connectionString,
-            ServerVersion.AutoDetect(connectionString));
+            optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 
             using (var context = new ApplicationDbContext(optionsBuilder.Options))
             {
-                var spotifyKeySection = config.GetSection("SpotifyKey");
-                var spotifyKey = spotifyKeySection.Value;
-                Console.WriteLine(spotifyKey);
-                var spotify = new SpotifyClient(spotifyKey);
+                var spotifyConfig = SpotifyClientConfig.CreateDefault();
+                var request = new ClientCredentialsRequest(clientId, clientSecret);
+                var response = await new OAuthClient(spotifyConfig).RequestToken(request);
+
+                var spotify = new SpotifyClient(spotifyConfig.WithToken(response.AccessToken));
                 var armChairShow = context.Shows.Where(x => x.Title.ToUpper() == "ARMCHAIR EXPERT").FirstOrDefault();
                 if (armChairShow != null)
                 {
@@ -35,7 +37,10 @@ namespace MediaGuide.Spotify
                     var existingEpisodes = context.Episodes.Where(x => x.ShowId == armChairShow.Id).ToList();
 
                     await foreach (
-                      var spotifyEpisode in spotify.Paginate(await spotify.Shows.GetEpisodes(armChairShow.SpotifyShowId))
+                      var spotifyEpisode in spotify.Paginate(await spotify.Shows.GetEpisodes(armChairShow.SpotifyShowId, new ShowEpisodesRequest()
+                      {
+                          Market = "US"
+                      }))
                     )
                     {
                         var existingEpisode = existingEpisodes.Where(x => x.Name == spotifyEpisode.Name).FirstOrDefault();
