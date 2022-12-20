@@ -1,2 +1,0 @@
-2022-11-21 09:15:25.137 -06:00 [WRN] As of ""2022-11-21T15:15:07.7645330+00:00"", the heartbeat has been running for ""00:00:02.7192260"" which is longer than ""00:00:01"". This could be caused by thread pool starvation.
-2022-11-21 09:19:15.468 -06:00 [WRN] As of ""2022-11-21T15:19:13.8053910+00:00"", the heartbeat has been running for ""00:00:01.6542990"" which is longer than ""00:00:01"". This could be caused by thread pool starvation.

@@ -38,3 +38,4 @@ msbuild.wrn
 
 MediaGuide.DataLoader/appsettings.json
 MediaGuide.Spotify/appsettings.json
+MediaGuide.Web/logs
