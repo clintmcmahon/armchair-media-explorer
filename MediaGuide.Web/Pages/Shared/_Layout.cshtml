@@ -5,6 +5,27 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Armchair Expert Media Explorer</title>
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Search Armchair episodes for books, movies and podcasts">
+    <meta name="description"
+        content="A dictionary of books, movies, documentaries and podcasts mentioned during Armchair Expert podcast episodes. ">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://armchairmediaexplorer.com">
+    <meta property="og:title" content="Search Armchair episodes for books, movies and podcasts">
+    <meta property="og:description"
+        content="A dictionary of books, movies, documentaries and podcasts mentioned during Armchair Expert podcast episodes. ">
+    <meta property="og:image" content="https://armchairmediaexplorer.com/preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://armchairmediaexplorer.com">
+    <meta property="twitter:title" content="Search Armchair episodes for books, movies and podcasts">
+    <meta property="twitter:description"
+        content="A dictionary of books, movies, documentaries and podcasts mentioned during Armchair Expert podcast episodes. ">
+    <meta property="twitter:image" content="https://armchairmediaexplorer.com/preview.png">
+
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -44,14 +65,13 @@
                 <div class="col-12">
                     <p>
                         This project was conducted by a group of Armchair-loving listeners who want to create a
-                        dictionary of
-                        all the great media mentioned during Armchair Expert podcast episdoes.
+                        dictionary of all the great media mentioned during Armchair Expert podcast episodes.
                     </p>
                     <p>
                         All names, logos, images, and brands are property of their respective owners. This website has
                         no
                         affilication with Armchair Expert or Spotify. Notice of
-                        <a asp-area="" asp-page="/nonaffiliation">Non-Affiliation and Disclaimer</a>.
+                        <a asp-area="" asp-page="/disclaimer">Non-Affiliation and Disclaimer</a>.
                     </p>
                     <p>
                         Give us a shout at  hello@armchairmediaexplorer.com
@@ -67,6 +87,7 @@
     <script src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script defer data-domain="armchairmediaexplorer.com" src="https://plausible.io/js/script.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

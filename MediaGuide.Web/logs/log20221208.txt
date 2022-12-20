@@ -1,0 +1,463 @@
+2022-12-08 09:58:42.980 -06:00 [INF] User profile is available. Using '/Users/clintmcmahon/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2022-12-08 09:58:44.121 -06:00 [INF] Now listening on: https://localhost:5001
+2022-12-08 09:58:44.122 -06:00 [INF] Now listening on: http://localhost:5000
+2022-12-08 09:58:44.200 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-08 09:58:44.200 -06:00 [INF] Hosting environment: Development
+2022-12-08 09:58:44.200 -06:00 [INF] Content root path: /Users/clintmcmahon/Code/projects/media-guide/MediaGuide.Web/
+2022-12-08 10:01:10.219 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/ - -
+2022-12-08 10:01:10.478 -06:00 [INF] Executing endpoint '/Index'
+2022-12-08 10:01:10.668 -06:00 [INF] Route matched with {page = "/Index", area = ""}. Executing page /Index
+2022-12-08 10:01:11.665 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.IndexModel.OnGet - ModelState is "Valid"
+2022-12-08 10:01:13.903 -06:00 [INF] Entity Framework Core 6.0.10 initialized 'ApplicationDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: MigrationsAssembly=MediaGuide.Data ServerVersion 8.0.30-mysql 
+2022-12-08 10:01:14.823 -06:00 [INF] Executed DbCommand (112ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`CreateDate`, `e`.`Description`, `e`.`Display`, `e`.`EpisodeDate`, `e`.`HtmlDescription`, `e`.`ImageUrl`, `e`.`Name`, `e`.`ShowId`, `e`.`Url`, `s`.`Id`, `t`.`EpisodesId`, `t`.`MediasId`, `t`.`Id`, `t`.`CreateDate`, `t`.`MediaType`, `t`.`Title`, `t`.`Url`
+FROM `Episodes` AS `e`
+INNER JOIN `Shows` AS `s` ON `e`.`ShowId` = `s`.`Id`
+LEFT JOIN (
+    SELECT `e0`.`EpisodesId`, `e0`.`MediasId`, `m`.`Id`, `m`.`CreateDate`, `m`.`MediaType`, `m`.`Title`, `m`.`Url`
+    FROM `EpisodeMedia` AS `e0`
+    INNER JOIN `Media` AS `m` ON `e0`.`MediasId` = `m`.`Id`
+) AS `t` ON `e`.`Id` = `t`.`EpisodesId`
+WHERE (`s`.`Title` = 'Armchair Expert') AND `e`.`Display`
+ORDER BY `e`.`EpisodeDate` DESC, `e`.`Id`, `s`.`Id`, `t`.`EpisodesId`, `t`.`MediasId`
+2022-12-08 10:01:15.174 -06:00 [INF] Executed handler method OnGet, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:01:15.802 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/lib/bootstrap/dist/css/bootstrap.min.css - -
+2022-12-08 10:01:15.884 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/site.css?v=e3dKn-uxUAay-jSWjQihpQJQClcjUWcOGCOyAtQ7Dyc - -
+2022-12-08 10:01:15.974 -06:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: '/Users/clintmcmahon/Code/projects/media-guide/MediaGuide.Web/wwwroot/css/site.css'
+2022-12-08 10:01:15.979 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/css/site.css?v=e3dKn-uxUAay-jSWjQihpQJQClcjUWcOGCOyAtQ7Dyc - - - 200 1210 text/css 94.3223ms
+2022-12-08 10:01:16.271 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:01:16.285 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 13.7509ms
+2022-12-08 10:01:16.310 -06:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: '/Users/clintmcmahon/Code/projects/media-guide/MediaGuide.Web/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css'
+2022-12-08 10:01:16.317 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/lib/bootstrap/dist/css/bootstrap.min.css - - - 200 162720 text/css 515.3585ms
+2022-12-08 10:01:16.635 -06:00 [INF] Executed page /Index in 5930.9864ms
+2022-12-08 10:01:16.637 -06:00 [INF] Executed endpoint '/Index'
+2022-12-08 10:01:16.838 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/ - - - 200 - text/html;+charset=utf-8 6646.0378ms
+2022-12-08 10:01:19.021 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/lib/jquery/dist/jquery.min.js - -
+2022-12-08 10:01:19.026 -06:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: '/Users/clintmcmahon/Code/projects/media-guide/MediaGuide.Web/wwwroot/lib/jquery/dist/jquery.min.js'
+2022-12-08 10:01:19.027 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/lib/jquery/dist/jquery.min.js - - - 200 89476 application/javascript 5.7553ms
+2022-12-08 10:01:19.188 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2022-12-08 10:01:19.193 -06:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: '/Users/clintmcmahon/Code/projects/media-guide/MediaGuide.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js'
+2022-12-08 10:01:19.193 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 200 78468 application/javascript 4.8347ms
+2022-12-08 10:01:19.201 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - -
+2022-12-08 10:01:19.202 -06:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: '/Users/clintmcmahon/Code/projects/media-guide/MediaGuide.Web/wwwroot/js/site.js'
+2022-12-08 10:01:19.202 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - - - 200 230 application/javascript 1.0072ms
+2022-12-08 10:01:19.203 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:01:19.207 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 4.3771ms
+2022-12-08 10:01:20.865 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/apple-touch-icon.png - -
+2022-12-08 10:01:20.877 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/favicon-16x16.png - -
+2022-12-08 10:01:20.879 -06:00 [INF] Sending file. Request path: '/apple-touch-icon.png'. Physical path: '/Users/clintmcmahon/Code/projects/media-guide/MediaGuide.Web/wwwroot/apple-touch-icon.png'
+2022-12-08 10:01:20.879 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/apple-touch-icon.png - - - 200 412 image/png 14.0606ms
+2022-12-08 10:01:20.891 -06:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: '/Users/clintmcmahon/Code/projects/media-guide/MediaGuide.Web/wwwroot/favicon-16x16.png'
+2022-12-08 10:01:20.891 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/favicon-16x16.png - - - 200 397 image/png 14.4130ms
+2022-12-08 10:02:39.313 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/ - -
+2022-12-08 10:02:39.321 -06:00 [INF] Executing endpoint '/Index'
+2022-12-08 10:02:39.346 -06:00 [INF] Route matched with {page = "/Index", area = ""}. Executing page /Index
+2022-12-08 10:02:39.390 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.IndexModel.OnGet - ModelState is "Valid"
+2022-12-08 10:02:39.682 -06:00 [INF] Entity Framework Core 6.0.10 initialized 'ApplicationDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: MigrationsAssembly=MediaGuide.Data ServerVersion 8.0.30-mysql 
+2022-12-08 10:02:39.780 -06:00 [INF] Executed DbCommand (45ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`CreateDate`, `e`.`Description`, `e`.`Display`, `e`.`EpisodeDate`, `e`.`HtmlDescription`, `e`.`ImageUrl`, `e`.`Name`, `e`.`ShowId`, `e`.`Url`, `s`.`Id`, `t`.`EpisodesId`, `t`.`MediasId`, `t`.`Id`, `t`.`CreateDate`, `t`.`MediaType`, `t`.`Title`, `t`.`Url`
+FROM `Episodes` AS `e`
+INNER JOIN `Shows` AS `s` ON `e`.`ShowId` = `s`.`Id`
+LEFT JOIN (
+    SELECT `e0`.`EpisodesId`, `e0`.`MediasId`, `m`.`Id`, `m`.`CreateDate`, `m`.`MediaType`, `m`.`Title`, `m`.`Url`
+    FROM `EpisodeMedia` AS `e0`
+    INNER JOIN `Media` AS `m` ON `e0`.`MediasId` = `m`.`Id`
+) AS `t` ON `e`.`Id` = `t`.`EpisodesId`
+WHERE (`s`.`Title` = 'Armchair Expert') AND `e`.`Display`
+ORDER BY `e`.`EpisodeDate` DESC, `e`.`Id`, `s`.`Id`, `t`.`EpisodesId`, `t`.`MediasId`
+2022-12-08 10:02:40.206 -06:00 [INF] Executed handler method OnGet, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:02:40.673 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:02:40.674 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 0.7119ms
+2022-12-08 10:02:40.785 -06:00 [INF] Executed page /Index in 1418.8203ms
+2022-12-08 10:02:40.785 -06:00 [INF] Executed endpoint '/Index'
+2022-12-08 10:02:40.786 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/ - - - 200 - text/html;+charset=utf-8 1473.2987ms
+2022-12-08 10:02:41.213 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:02:41.213 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 0.3316ms
+2022-12-08 10:02:46.956 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Disclaimer - -
+2022-12-08 10:02:46.971 -06:00 [INF] Executing endpoint '/Disclaimer'
+2022-12-08 10:02:46.976 -06:00 [INF] Route matched with {page = "/Disclaimer", area = ""}. Executing page /Disclaimer
+2022-12-08 10:02:46.977 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.DisclaimerModel.OnGet - ModelState is "Valid"
+2022-12-08 10:02:46.978 -06:00 [INF] Executed handler method OnGet, returned result .
+2022-12-08 10:02:47.074 -06:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2022-12-08 10:02:47.088 -06:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:02:47.150 -06:00 [INF] Executed page /Disclaimer in 172.3974ms
+2022-12-08 10:02:47.151 -06:00 [INF] Executed endpoint '/Disclaimer'
+2022-12-08 10:02:47.151 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Disclaimer - - - 200 - text/html;+charset=utf-8 195.1965ms
+2022-12-08 10:02:47.242 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:02:47.290 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 47.6626ms
+2022-12-08 10:02:47.326 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:02:47.340 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 14.2104ms
+2022-12-08 10:03:11.053 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Disclaimer - -
+2022-12-08 10:03:11.054 -06:00 [INF] Executing endpoint '/Disclaimer'
+2022-12-08 10:03:11.060 -06:00 [INF] Route matched with {page = "/Disclaimer", area = ""}. Executing page /Disclaimer
+2022-12-08 10:03:11.060 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.DisclaimerModel.OnGet - ModelState is "Valid"
+2022-12-08 10:03:11.060 -06:00 [INF] Executed handler method OnGet, returned result .
+2022-12-08 10:03:11.061 -06:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2022-12-08 10:03:11.061 -06:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:03:11.251 -06:00 [INF] Executed page /Disclaimer in 190.8114ms
+2022-12-08 10:03:11.253 -06:00 [INF] Executed endpoint '/Disclaimer'
+2022-12-08 10:03:11.255 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Disclaimer - - - 200 - text/html;+charset=utf-8 199.6571ms
+2022-12-08 10:03:11.365 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:03:11.472 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 106.7779ms
+2022-12-08 10:03:11.489 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:03:11.510 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 21.4640ms
+2022-12-08 10:03:48.497 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Disclaimer - -
+2022-12-08 10:03:48.498 -06:00 [INF] Executing endpoint '/Disclaimer'
+2022-12-08 10:03:48.507 -06:00 [INF] Route matched with {page = "/Disclaimer", area = ""}. Executing page /Disclaimer
+2022-12-08 10:03:48.507 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.DisclaimerModel.OnGet - ModelState is "Valid"
+2022-12-08 10:03:48.508 -06:00 [INF] Executed handler method OnGet, returned result .
+2022-12-08 10:03:48.508 -06:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2022-12-08 10:03:48.510 -06:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:03:48.575 -06:00 [INF] Executed page /Disclaimer in 68.3095ms
+2022-12-08 10:03:48.575 -06:00 [INF] Executed endpoint '/Disclaimer'
+2022-12-08 10:03:48.576 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Disclaimer - - - 200 - text/html;+charset=utf-8 78.3385ms
+2022-12-08 10:03:48.652 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:03:48.655 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 2.5257ms
+2022-12-08 10:03:48.656 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:03:48.657 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 0.5405ms
+2022-12-08 10:03:59.645 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Disclaimer - -
+2022-12-08 10:03:59.646 -06:00 [INF] Executing endpoint '/Disclaimer'
+2022-12-08 10:03:59.652 -06:00 [INF] Route matched with {page = "/Disclaimer", area = ""}. Executing page /Disclaimer
+2022-12-08 10:03:59.652 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.DisclaimerModel.OnGet - ModelState is "Valid"
+2022-12-08 10:03:59.652 -06:00 [INF] Executed handler method OnGet, returned result .
+2022-12-08 10:03:59.652 -06:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2022-12-08 10:03:59.653 -06:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:03:59.685 -06:00 [INF] Executed page /Disclaimer in 33.4371ms
+2022-12-08 10:03:59.838 -06:00 [INF] Executed endpoint '/Disclaimer'
+2022-12-08 10:03:59.838 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Disclaimer - - - 200 - text/html;+charset=utf-8 193.2452ms
+2022-12-08 10:03:59.749 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:03:59.843 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 94.2839ms
+2022-12-08 10:04:00.000 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:04:00.000 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 0.3818ms
+2022-12-08 10:04:20.234 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Disclaimer - -
+2022-12-08 10:04:20.235 -06:00 [INF] Executing endpoint '/Disclaimer'
+2022-12-08 10:04:20.241 -06:00 [INF] Route matched with {page = "/Disclaimer", area = ""}. Executing page /Disclaimer
+2022-12-08 10:04:20.242 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.DisclaimerModel.OnGet - ModelState is "Valid"
+2022-12-08 10:04:20.243 -06:00 [INF] Executed handler method OnGet, returned result .
+2022-12-08 10:04:20.243 -06:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2022-12-08 10:04:20.243 -06:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:04:20.279 -06:00 [INF] Executed page /Disclaimer in 37.107ms
+2022-12-08 10:04:20.298 -06:00 [INF] Executed endpoint '/Disclaimer'
+2022-12-08 10:04:20.410 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:04:20.414 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 3.7705ms
+2022-12-08 10:04:20.436 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:04:20.436 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 0.3087ms
+2022-12-08 10:04:20.454 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Disclaimer - - - 200 - text/html;+charset=utf-8 219.5547ms
+2022-12-08 10:04:21.368 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Disclaimer - -
+2022-12-08 10:04:21.370 -06:00 [INF] Executing endpoint '/Disclaimer'
+2022-12-08 10:04:21.376 -06:00 [INF] Route matched with {page = "/Disclaimer", area = ""}. Executing page /Disclaimer
+2022-12-08 10:04:21.377 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.DisclaimerModel.OnGet - ModelState is "Valid"
+2022-12-08 10:04:21.378 -06:00 [INF] Executed handler method OnGet, returned result .
+2022-12-08 10:04:21.378 -06:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2022-12-08 10:04:21.378 -06:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:04:21.393 -06:00 [INF] Executed page /Disclaimer in 16.4089ms
+2022-12-08 10:04:21.395 -06:00 [INF] Executed endpoint '/Disclaimer'
+2022-12-08 10:04:21.395 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Disclaimer - - - 200 - text/html;+charset=utf-8 26.8253ms
+2022-12-08 10:04:21.461 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:04:21.462 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 0.5078ms
+2022-12-08 10:04:21.482 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:04:21.485 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 2.7958ms
+2022-12-08 10:04:25.194 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Privacy - -
+2022-12-08 10:04:25.195 -06:00 [INF] Executing endpoint '/Privacy'
+2022-12-08 10:04:25.200 -06:00 [INF] Route matched with {page = "/Privacy", area = ""}. Executing page /Privacy
+2022-12-08 10:04:25.202 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.PrivacyModel.OnGet - ModelState is "Valid"
+2022-12-08 10:04:25.202 -06:00 [INF] Executed handler method OnGet, returned result .
+2022-12-08 10:04:25.202 -06:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2022-12-08 10:04:25.204 -06:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:04:25.218 -06:00 [INF] Executed page /Privacy in 17.824ms
+2022-12-08 10:04:25.219 -06:00 [INF] Executed endpoint '/Privacy'
+2022-12-08 10:04:25.219 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Privacy - - - 200 - text/html;+charset=utf-8 25.3489ms
+2022-12-08 10:04:25.356 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:04:25.358 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 1.2334ms
+2022-12-08 10:04:25.360 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:04:25.360 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 2.0037ms
+2022-12-08 10:05:40.176 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Privacy - -
+2022-12-08 10:05:40.178 -06:00 [INF] Executing endpoint '/Privacy'
+2022-12-08 10:05:40.184 -06:00 [INF] Route matched with {page = "/Privacy", area = ""}. Executing page /Privacy
+2022-12-08 10:05:40.184 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.PrivacyModel.OnGet - ModelState is "Valid"
+2022-12-08 10:05:40.185 -06:00 [INF] Executed handler method OnGet, returned result .
+2022-12-08 10:05:40.185 -06:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2022-12-08 10:05:40.185 -06:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:05:40.200 -06:00 [INF] Executed page /Privacy in 15.2369ms
+2022-12-08 10:05:40.200 -06:00 [INF] Executed endpoint '/Privacy'
+2022-12-08 10:05:40.200 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Privacy - - - 200 - text/html;+charset=utf-8 23.7358ms
+2022-12-08 10:05:40.309 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:05:40.312 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:05:40.312 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 0.3474ms
+2022-12-08 10:05:40.314 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 4.8871ms
+2022-12-08 10:05:40.373 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:05:40.374 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 0.5827ms
+2022-12-08 10:05:53.284 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Disclaimer - -
+2022-12-08 10:05:53.286 -06:00 [INF] Executing endpoint '/Disclaimer'
+2022-12-08 10:05:53.294 -06:00 [INF] Route matched with {page = "/Disclaimer", area = ""}. Executing page /Disclaimer
+2022-12-08 10:05:53.295 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.DisclaimerModel.OnGet - ModelState is "Valid"
+2022-12-08 10:05:53.295 -06:00 [INF] Executed handler method OnGet, returned result .
+2022-12-08 10:05:53.295 -06:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2022-12-08 10:05:53.299 -06:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:05:53.400 -06:00 [INF] Executed page /Disclaimer in 105.6653ms
+2022-12-08 10:05:53.435 -06:00 [INF] Executed endpoint '/Disclaimer'
+2022-12-08 10:05:53.542 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Disclaimer - - - 200 - text/html;+charset=utf-8 257.3235ms
+2022-12-08 10:05:53.674 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:05:53.683 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:05:53.695 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 12.5791ms
+2022-12-08 10:05:53.705 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 28.9380ms
+2022-12-08 10:07:20.582 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Disclaimer - -
+2022-12-08 10:07:20.583 -06:00 [INF] Executing endpoint '/Disclaimer'
+2022-12-08 10:07:20.591 -06:00 [INF] Route matched with {page = "/Disclaimer", area = ""}. Executing page /Disclaimer
+2022-12-08 10:07:20.593 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.DisclaimerModel.OnGet - ModelState is "Valid"
+2022-12-08 10:07:20.593 -06:00 [INF] Executed handler method OnGet, returned result .
+2022-12-08 10:07:20.594 -06:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2022-12-08 10:07:20.594 -06:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:07:20.616 -06:00 [INF] Executed page /Disclaimer in 24.8551ms
+2022-12-08 10:07:20.616 -06:00 [INF] Executed endpoint '/Disclaimer'
+2022-12-08 10:07:20.616 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Disclaimer - - - 200 - text/html;+charset=utf-8 34.2142ms
+2022-12-08 10:07:20.694 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:07:20.694 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:07:20.694 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 0.3063ms
+2022-12-08 10:07:20.696 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 2.4955ms
+2022-12-08 10:07:20.782 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:07:20.783 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 0.4891ms
+2022-12-08 10:07:20.842 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/apple-touch-icon.png - -
+2022-12-08 10:07:20.846 -06:00 [INF] Sending file. Request path: '/apple-touch-icon.png'. Physical path: '/Users/clintmcmahon/Code/projects/media-guide/MediaGuide.Web/wwwroot/apple-touch-icon.png'
+2022-12-08 10:07:20.846 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/apple-touch-icon.png - - - 200 412 image/png 4.5160ms
+2022-12-08 10:07:20.850 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/favicon-16x16.png - -
+2022-12-08 10:07:20.852 -06:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: '/Users/clintmcmahon/Code/projects/media-guide/MediaGuide.Web/wwwroot/favicon-16x16.png'
+2022-12-08 10:07:20.854 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/favicon-16x16.png - - - 200 397 image/png 3.5495ms
+2022-12-08 10:07:34.951 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Disclaimer - -
+2022-12-08 10:07:34.952 -06:00 [INF] Executing endpoint '/Disclaimer'
+2022-12-08 10:07:34.962 -06:00 [INF] Route matched with {page = "/Disclaimer", area = ""}. Executing page /Disclaimer
+2022-12-08 10:07:34.962 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.DisclaimerModel.OnGet - ModelState is "Valid"
+2022-12-08 10:07:34.962 -06:00 [INF] Executed handler method OnGet, returned result .
+2022-12-08 10:07:34.962 -06:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2022-12-08 10:07:34.963 -06:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:07:34.982 -06:00 [INF] Executed page /Disclaimer in 20.1003ms
+2022-12-08 10:07:34.982 -06:00 [INF] Executed endpoint '/Disclaimer'
+2022-12-08 10:07:34.983 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Disclaimer - - - 200 - text/html;+charset=utf-8 31.2532ms
+2022-12-08 10:07:35.082 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:07:35.085 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 3.2132ms
+2022-12-08 10:07:35.094 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:07:35.095 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 0.3117ms
+2022-12-08 10:07:35.167 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/apple-touch-icon.png - -
+2022-12-08 10:07:35.168 -06:00 [INF] Sending file. Request path: '/apple-touch-icon.png'. Physical path: '/Users/clintmcmahon/Code/projects/media-guide/MediaGuide.Web/wwwroot/apple-touch-icon.png'
+2022-12-08 10:07:35.168 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/apple-touch-icon.png - - - 200 412 image/png 0.9992ms
+2022-12-08 10:07:35.170 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/favicon-16x16.png - -
+2022-12-08 10:07:35.174 -06:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: '/Users/clintmcmahon/Code/projects/media-guide/MediaGuide.Web/wwwroot/favicon-16x16.png'
+2022-12-08 10:07:35.175 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/favicon-16x16.png - - - 200 397 image/png 4.4362ms
+2022-12-08 10:14:09.874 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Disclaimer - -
+2022-12-08 10:14:09.875 -06:00 [INF] Executing endpoint '/Disclaimer'
+2022-12-08 10:14:09.882 -06:00 [INF] Route matched with {page = "/Disclaimer", area = ""}. Executing page /Disclaimer
+2022-12-08 10:14:09.882 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.DisclaimerModel.OnGet - ModelState is "Valid"
+2022-12-08 10:14:09.882 -06:00 [INF] Executed handler method OnGet, returned result .
+2022-12-08 10:14:09.882 -06:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2022-12-08 10:14:09.883 -06:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:14:09.952 -06:00 [INF] Executed page /Disclaimer in 69.7951ms
+2022-12-08 10:14:10.075 -06:00 [INF] Executed endpoint '/Disclaimer'
+2022-12-08 10:14:10.078 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Disclaimer - - - 200 - text/html;+charset=utf-8 204.5526ms
+2022-12-08 10:14:10.094 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:14:10.098 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 4.1428ms
+2022-12-08 10:14:10.139 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:14:10.143 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 3.6923ms
+2022-12-08 10:14:10.204 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/apple-touch-icon.png - -
+2022-12-08 10:14:10.206 -06:00 [INF] Sending file. Request path: '/apple-touch-icon.png'. Physical path: '/Users/clintmcmahon/Code/projects/media-guide/MediaGuide.Web/wwwroot/apple-touch-icon.png'
+2022-12-08 10:14:10.210 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/apple-touch-icon.png - - - 200 412 image/png 6.0367ms
+2022-12-08 10:14:10.210 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/favicon-16x16.png - -
+2022-12-08 10:14:10.213 -06:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: '/Users/clintmcmahon/Code/projects/media-guide/MediaGuide.Web/wwwroot/favicon-16x16.png'
+2022-12-08 10:14:10.213 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/favicon-16x16.png - - - 200 397 image/png 3.1372ms
+2022-12-08 10:14:15.397 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Privacy - -
+2022-12-08 10:14:15.421 -06:00 [INF] Executing endpoint '/Privacy'
+2022-12-08 10:14:15.427 -06:00 [INF] Route matched with {page = "/Privacy", area = ""}. Executing page /Privacy
+2022-12-08 10:14:15.441 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.PrivacyModel.OnGet - ModelState is "Valid"
+2022-12-08 10:14:15.452 -06:00 [INF] Executed handler method OnGet, returned result .
+2022-12-08 10:14:15.459 -06:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2022-12-08 10:14:15.460 -06:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:14:15.492 -06:00 [INF] Executed page /Privacy in 51.9325ms
+2022-12-08 10:14:15.500 -06:00 [INF] Executed endpoint '/Privacy'
+2022-12-08 10:14:15.689 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Privacy - - - 200 - text/html;+charset=utf-8 292.1719ms
+2022-12-08 10:14:15.760 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:14:15.761 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:14:15.762 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 0.3013ms
+2022-12-08 10:14:15.762 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 1.5041ms
+2022-12-08 10:14:20.041 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Privacy - -
+2022-12-08 10:14:20.052 -06:00 [INF] Executing endpoint '/Privacy'
+2022-12-08 10:14:20.061 -06:00 [INF] Route matched with {page = "/Privacy", area = ""}. Executing page /Privacy
+2022-12-08 10:14:20.061 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.PrivacyModel.OnGet - ModelState is "Valid"
+2022-12-08 10:14:20.061 -06:00 [INF] Executed handler method OnGet, returned result .
+2022-12-08 10:14:20.061 -06:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2022-12-08 10:14:20.061 -06:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:14:20.082 -06:00 [INF] Executed page /Privacy in 21.0722ms
+2022-12-08 10:14:20.082 -06:00 [INF] Executed endpoint '/Privacy'
+2022-12-08 10:14:20.082 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Privacy - - - 200 - text/html;+charset=utf-8 41.3118ms
+2022-12-08 10:14:20.178 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:14:20.181 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 3.0400ms
+2022-12-08 10:14:20.182 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:14:20.182 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 0.1976ms
+2022-12-08 10:14:38.729 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Privacy - -
+2022-12-08 10:14:38.729 -06:00 [INF] Executing endpoint '/Privacy'
+2022-12-08 10:14:38.735 -06:00 [INF] Route matched with {page = "/Privacy", area = ""}. Executing page /Privacy
+2022-12-08 10:14:38.735 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.PrivacyModel.OnGet - ModelState is "Valid"
+2022-12-08 10:14:38.735 -06:00 [INF] Executed handler method OnGet, returned result .
+2022-12-08 10:14:38.736 -06:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2022-12-08 10:14:38.736 -06:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:14:38.784 -06:00 [INF] Executed page /Privacy in 48.8273ms
+2022-12-08 10:14:38.784 -06:00 [INF] Executed endpoint '/Privacy'
+2022-12-08 10:14:38.784 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Privacy - - - 200 - text/html;+charset=utf-8 55.1945ms
+2022-12-08 10:14:38.877 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:14:38.879 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 2.6042ms
+2022-12-08 10:14:38.890 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:14:38.891 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 0.3591ms
+2022-12-08 10:15:05.477 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Privacy - -
+2022-12-08 10:15:05.477 -06:00 [INF] Executing endpoint '/Privacy'
+2022-12-08 10:15:05.484 -06:00 [INF] Route matched with {page = "/Privacy", area = ""}. Executing page /Privacy
+2022-12-08 10:15:05.484 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.PrivacyModel.OnGet - ModelState is "Valid"
+2022-12-08 10:15:05.485 -06:00 [INF] Executed handler method OnGet, returned result .
+2022-12-08 10:15:05.485 -06:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2022-12-08 10:15:05.487 -06:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:15:05.535 -06:00 [INF] Executed page /Privacy in 50.8861ms
+2022-12-08 10:15:05.536 -06:00 [INF] Executed endpoint '/Privacy'
+2022-12-08 10:15:05.537 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Privacy - - - 200 - text/html;+charset=utf-8 59.8773ms
+2022-12-08 10:15:05.651 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:15:05.657 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 6.1157ms
+2022-12-08 10:15:05.657 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:15:05.658 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 0.7491ms
+2022-12-08 10:15:51.048 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Privacy - -
+2022-12-08 10:15:51.049 -06:00 [INF] Executing endpoint '/Privacy'
+2022-12-08 10:15:51.053 -06:00 [INF] Route matched with {page = "/Privacy", area = ""}. Executing page /Privacy
+2022-12-08 10:15:51.053 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.PrivacyModel.OnGet - ModelState is "Valid"
+2022-12-08 10:15:51.053 -06:00 [INF] Executed handler method OnGet, returned result .
+2022-12-08 10:15:51.053 -06:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2022-12-08 10:15:51.054 -06:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:15:51.066 -06:00 [INF] Executed page /Privacy in 12.5906ms
+2022-12-08 10:15:51.066 -06:00 [INF] Executed endpoint '/Privacy'
+2022-12-08 10:15:51.066 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Privacy - - - 200 - text/html;+charset=utf-8 17.8310ms
+2022-12-08 10:15:51.175 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:15:51.176 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 0.6161ms
+2022-12-08 10:15:51.175 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:15:51.178 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 3.3986ms
+2022-12-08 10:16:03.214 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Privacy - -
+2022-12-08 10:16:03.214 -06:00 [INF] Executing endpoint '/Privacy'
+2022-12-08 10:16:03.219 -06:00 [INF] Route matched with {page = "/Privacy", area = ""}. Executing page /Privacy
+2022-12-08 10:16:03.220 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.PrivacyModel.OnGet - ModelState is "Valid"
+2022-12-08 10:16:03.220 -06:00 [INF] Executed handler method OnGet, returned result .
+2022-12-08 10:16:03.220 -06:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2022-12-08 10:16:03.221 -06:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:16:03.418 -06:00 [INF] Executed page /Privacy in 198.3694ms
+2022-12-08 10:16:03.422 -06:00 [INF] Executed endpoint '/Privacy'
+2022-12-08 10:16:03.425 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Privacy - - - 200 - text/html;+charset=utf-8 210.4766ms
+2022-12-08 10:16:03.525 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:16:03.528 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:16:03.528 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 0.3314ms
+2022-12-08 10:16:03.528 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 3.3020ms
+2022-12-08 10:16:18.677 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/ - -
+2022-12-08 10:16:18.677 -06:00 [INF] Executing endpoint '/Index'
+2022-12-08 10:16:18.683 -06:00 [INF] Route matched with {page = "/Index", area = ""}. Executing page /Index
+2022-12-08 10:16:18.685 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.IndexModel.OnGet - ModelState is "Valid"
+2022-12-08 10:16:18.763 -06:00 [INF] Entity Framework Core 6.0.10 initialized 'ApplicationDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: MigrationsAssembly=MediaGuide.Data ServerVersion 8.0.30-mysql 
+2022-12-08 10:16:18.872 -06:00 [INF] Executed DbCommand (37ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`CreateDate`, `e`.`Description`, `e`.`Display`, `e`.`EpisodeDate`, `e`.`HtmlDescription`, `e`.`ImageUrl`, `e`.`Name`, `e`.`ShowId`, `e`.`Url`, `s`.`Id`, `t`.`EpisodesId`, `t`.`MediasId`, `t`.`Id`, `t`.`CreateDate`, `t`.`MediaType`, `t`.`Title`, `t`.`Url`
+FROM `Episodes` AS `e`
+INNER JOIN `Shows` AS `s` ON `e`.`ShowId` = `s`.`Id`
+LEFT JOIN (
+    SELECT `e0`.`EpisodesId`, `e0`.`MediasId`, `m`.`Id`, `m`.`CreateDate`, `m`.`MediaType`, `m`.`Title`, `m`.`Url`
+    FROM `EpisodeMedia` AS `e0`
+    INNER JOIN `Media` AS `m` ON `e0`.`MediasId` = `m`.`Id`
+) AS `t` ON `e`.`Id` = `t`.`EpisodesId`
+WHERE (`s`.`Title` = 'Armchair Expert') AND `e`.`Display`
+ORDER BY `e`.`EpisodeDate` DESC, `e`.`Id`, `s`.`Id`, `t`.`EpisodesId`, `t`.`MediasId`
+2022-12-08 10:16:19.115 -06:00 [INF] Executed handler method OnGet, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:16:19.421 -06:00 [INF] Executed page /Index in 738.4075ms
+2022-12-08 10:16:19.422 -06:00 [INF] Executed endpoint '/Index'
+2022-12-08 10:16:19.438 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/ - - - 200 - text/html;+charset=utf-8 761.7961ms
+2022-12-08 10:16:20.218 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:16:20.219 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 0.3777ms
+2022-12-08 10:16:23.181 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:16:23.182 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 0.3454ms
+2022-12-08 10:16:24.514 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/apple-touch-icon.png - -
+2022-12-08 10:16:24.515 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/favicon-16x16.png - -
+2022-12-08 10:16:24.516 -06:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: '/Users/clintmcmahon/Code/projects/media-guide/MediaGuide.Web/wwwroot/favicon-16x16.png'
+2022-12-08 10:16:24.516 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/favicon-16x16.png - - - 200 397 image/png 1.3809ms
+2022-12-08 10:16:24.520 -06:00 [INF] Sending file. Request path: '/apple-touch-icon.png'. Physical path: '/Users/clintmcmahon/Code/projects/media-guide/MediaGuide.Web/wwwroot/apple-touch-icon.png'
+2022-12-08 10:16:24.520 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/apple-touch-icon.png - - - 200 412 image/png 5.6356ms
+2022-12-08 10:16:29.419 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/About - -
+2022-12-08 10:16:29.422 -06:00 [INF] Executing endpoint '/About'
+2022-12-08 10:16:29.428 -06:00 [INF] Route matched with {page = "/About", area = ""}. Executing page /About
+2022-12-08 10:16:29.428 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.AboutModel.OnGet - ModelState is "Valid"
+2022-12-08 10:16:29.428 -06:00 [INF] Executed handler method OnGet, returned result .
+2022-12-08 10:16:29.429 -06:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2022-12-08 10:16:29.429 -06:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:16:29.438 -06:00 [INF] Executed page /About in 10.624ms
+2022-12-08 10:16:29.439 -06:00 [INF] Executed endpoint '/About'
+2022-12-08 10:16:29.439 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/About - - - 200 - text/html;+charset=utf-8 20.1671ms
+2022-12-08 10:16:29.798 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:16:29.798 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 0.4715ms
+2022-12-08 10:16:29.801 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:16:29.802 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 0.3006ms
+2022-12-08 10:16:30.010 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/apple-touch-icon.png - -
+2022-12-08 10:16:30.013 -06:00 [INF] Sending file. Request path: '/apple-touch-icon.png'. Physical path: '/Users/clintmcmahon/Code/projects/media-guide/MediaGuide.Web/wwwroot/apple-touch-icon.png'
+2022-12-08 10:16:30.011 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/favicon-16x16.png - -
+2022-12-08 10:16:30.014 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/apple-touch-icon.png - - - 200 412 image/png 3.5195ms
+2022-12-08 10:16:30.015 -06:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: '/Users/clintmcmahon/Code/projects/media-guide/MediaGuide.Web/wwwroot/favicon-16x16.png'
+2022-12-08 10:16:30.016 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/favicon-16x16.png - - - 200 397 image/png 5.0063ms
+2022-12-08 10:17:02.149 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/About - -
+2022-12-08 10:17:02.149 -06:00 [INF] Executing endpoint '/About'
+2022-12-08 10:17:02.158 -06:00 [INF] Route matched with {page = "/About", area = ""}. Executing page /About
+2022-12-08 10:17:02.158 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.AboutModel.OnGet - ModelState is "Valid"
+2022-12-08 10:17:02.158 -06:00 [INF] Executed handler method OnGet, returned result .
+2022-12-08 10:17:02.158 -06:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2022-12-08 10:17:02.159 -06:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:17:02.188 -06:00 [INF] Executed page /About in 30.4366ms
+2022-12-08 10:17:02.295 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:17:02.356 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:17:02.558 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 201.9129ms
+2022-12-08 10:17:02.563 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 267.8973ms
+2022-12-08 10:17:02.580 -06:00 [INF] Executed endpoint '/About'
+2022-12-08 10:17:02.580 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/About - - - 200 - text/html;+charset=utf-8 430.7337ms
+2022-12-08 10:17:02.613 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/apple-touch-icon.png - -
+2022-12-08 10:17:02.614 -06:00 [INF] Sending file. Request path: '/apple-touch-icon.png'. Physical path: '/Users/clintmcmahon/Code/projects/media-guide/MediaGuide.Web/wwwroot/apple-touch-icon.png'
+2022-12-08 10:17:02.614 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/apple-touch-icon.png - - - 200 412 image/png 0.8117ms
+2022-12-08 10:17:02.614 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/favicon-16x16.png - -
+2022-12-08 10:17:02.623 -06:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: '/Users/clintmcmahon/Code/projects/media-guide/MediaGuide.Web/wwwroot/favicon-16x16.png'
+2022-12-08 10:17:02.623 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/favicon-16x16.png - - - 200 397 image/png 9.2612ms
+2022-12-08 10:17:07.880 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/Disclaimer - -
+2022-12-08 10:17:07.880 -06:00 [INF] Executing endpoint '/Disclaimer'
+2022-12-08 10:17:07.883 -06:00 [INF] Route matched with {page = "/Disclaimer", area = ""}. Executing page /Disclaimer
+2022-12-08 10:17:07.883 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.DisclaimerModel.OnGet - ModelState is "Valid"
+2022-12-08 10:17:07.883 -06:00 [INF] Executed handler method OnGet, returned result .
+2022-12-08 10:17:07.884 -06:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2022-12-08 10:17:07.884 -06:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:17:07.894 -06:00 [INF] Executed page /Disclaimer in 10.5611ms
+2022-12-08 10:17:07.894 -06:00 [INF] Executed endpoint '/Disclaimer'
+2022-12-08 10:17:07.894 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/Disclaimer - - - 200 - text/html;+charset=utf-8 14.5282ms
+2022-12-08 10:17:08.024 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:17:08.025 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 0.4781ms
+2022-12-08 10:17:08.025 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:17:08.025 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 0.1851ms
+2022-12-08 10:17:11.171 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/ - -
+2022-12-08 10:17:11.171 -06:00 [INF] Executing endpoint '/Index'
+2022-12-08 10:17:11.175 -06:00 [INF] Route matched with {page = "/Index", area = ""}. Executing page /Index
+2022-12-08 10:17:11.184 -06:00 [INF] Executing handler method MediaGuide.Web.Pages.IndexModel.OnGet - ModelState is "Valid"
+2022-12-08 10:17:11.186 -06:00 [INF] Entity Framework Core 6.0.10 initialized 'ApplicationDbContext' using provider 'Pomelo.EntityFrameworkCore.MySql:6.0.2' with options: MigrationsAssembly=MediaGuide.Data ServerVersion 8.0.30-mysql 
+2022-12-08 10:17:11.222 -06:00 [INF] Executed DbCommand (31ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `e`.`Id`, `e`.`CreateDate`, `e`.`Description`, `e`.`Display`, `e`.`EpisodeDate`, `e`.`HtmlDescription`, `e`.`ImageUrl`, `e`.`Name`, `e`.`ShowId`, `e`.`Url`, `s`.`Id`, `t`.`EpisodesId`, `t`.`MediasId`, `t`.`Id`, `t`.`CreateDate`, `t`.`MediaType`, `t`.`Title`, `t`.`Url`
+FROM `Episodes` AS `e`
+INNER JOIN `Shows` AS `s` ON `e`.`ShowId` = `s`.`Id`
+LEFT JOIN (
+    SELECT `e0`.`EpisodesId`, `e0`.`MediasId`, `m`.`Id`, `m`.`CreateDate`, `m`.`MediaType`, `m`.`Title`, `m`.`Url`
+    FROM `EpisodeMedia` AS `e0`
+    INNER JOIN `Media` AS `m` ON `e0`.`MediasId` = `m`.`Id`
+) AS `t` ON `e`.`Id` = `t`.`EpisodesId`
+WHERE (`s`.`Title` = 'Armchair Expert') AND `e`.`Display`
+ORDER BY `e`.`EpisodeDate` DESC, `e`.`Id`, `s`.`Id`, `t`.`EpisodesId`, `t`.`MediasId`
+2022-12-08 10:17:11.401 -06:00 [INF] Executed handler method OnGet, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-08 10:17:11.576 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - -
+2022-12-08 10:17:11.576 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/MediaGuide.styles.css - - - 404 0 - 0.4581ms
+2022-12-08 10:17:11.967 -06:00 [INF] Executed page /Index in 791.2271ms
+2022-12-08 10:17:11.968 -06:00 [INF] Executed endpoint '/Index'
+2022-12-08 10:17:11.968 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/ - - - 200 - text/html;+charset=utf-8 797.3161ms
+2022-12-08 10:17:16.261 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-12-08 10:17:16.262 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11966 application/javascript;+charset=utf-8 0.5928ms
+2022-12-08 10:17:16.555 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/favicon-16x16.png - -
+2022-12-08 10:17:16.555 -06:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/apple-touch-icon.png - -
+2022-12-08 10:17:16.556 -06:00 [INF] Sending file. Request path: '/apple-touch-icon.png'. Physical path: '/Users/clintmcmahon/Code/projects/media-guide/MediaGuide.Web/wwwroot/apple-touch-icon.png'
+2022-12-08 10:17:16.556 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/apple-touch-icon.png - - - 200 412 image/png 1.5686ms
+2022-12-08 10:17:16.558 -06:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: '/Users/clintmcmahon/Code/projects/media-guide/MediaGuide.Web/wwwroot/favicon-16x16.png'
+2022-12-08 10:17:16.559 -06:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/favicon-16x16.png - - - 200 397 image/png 3.9816ms
